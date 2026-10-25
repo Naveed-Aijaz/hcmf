@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://hcm-wine.vercel.app/',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
