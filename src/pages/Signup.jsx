@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import {
   Box,
@@ -159,12 +159,14 @@ export default function Signup() {
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               sx={{ mb: 2 }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <PersonOutlined color="action" fontSize="small" />
-                  </InputAdornment>
-                ),
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <PersonOutlined color="action" fontSize="small" />
+                    </InputAdornment>
+                  ),
+                },
               }}
             />
             <TextField
@@ -174,12 +176,14 @@ export default function Signup() {
               onChange={(e) => setForm({ ...form, company: e.target.value })}
               sx={{ mb: 2 }}
               placeholder="Your organization"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Business color="action" fontSize="small" />
-                  </InputAdornment>
-                ),
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <Business color="action" fontSize="small" />
+                    </InputAdornment>
+                  ),
+                },
               }}
             />
             <TextField
@@ -190,12 +194,14 @@ export default function Signup() {
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               sx={{ mb: 2 }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <EmailOutlined color="action" fontSize="small" />
-                  </InputAdornment>
-                ),
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <EmailOutlined color="action" fontSize="small" />
+                    </InputAdornment>
+                  ),
+                },
               }}
             />
             <TextField
@@ -206,19 +212,21 @@ export default function Signup() {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               sx={{ mb: 2.5 }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockOutlined color="action" fontSize="small" />
-                  </InputAdornment>
-                ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(!showPassword)} edge="end" size="small">
-                      {showPassword ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small" />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockOutlined color="action" fontSize="small" />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton onClick={() => setShowPassword(!showPassword)} edge="end" size="small">
+                        {showPassword ? <VisibilityOff fontSize="small" /> : <Visibility fontSize="small" />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                },
               }}
             />
 
@@ -267,12 +275,14 @@ export default function Signup() {
           </Box>
 
           <Divider sx={{ my: 2 }} />
-          <Typography variant="body2" textAlign="center" color="text.secondary">
-            Already have an account?{' '}
-            <Link to="/login" style={{ color: '#1e40af', fontWeight: 600, textDecoration: 'none' }}>
-              Sign in
-            </Link>
-          </Typography>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="body2" color="text.secondary">
+              Already have an account?{' '}
+              <Link to="/login" style={{ color: '#1e40af', fontWeight: 600, textDecoration: 'none' }}>
+                Sign in
+              </Link>
+            </Typography>
+          </Box>
         </Paper>
       </Box>
     </Box>
